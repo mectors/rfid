@@ -1,0 +1,18 @@
+name: rfid
+version: 0.1
+summary: Reads tags from the RFID reader and sends them to MQTT sensor/rfid/in
+description: This snap connects to a local mqtt broker that listens on port 1883 and publishes everything the RFID reader scans on standard input.
+confinement: devmode  # use "strict" to enforce system access only via declared interfaces
+grade: devel # use "stable" to assert the snap quality
+
+apps:
+    rfid:
+        command: bin/rfid
+        #daemon: simple
+        plugs:
+          - network
+
+parts:
+   rfid:
+     plugin: go
+     source: src/rfid
