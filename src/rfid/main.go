@@ -50,7 +50,6 @@ func main() {
 	for true {
 		var action = ""
 		for {
-		  //ie, error := device.ReadOne()
 			ie,_ := device.Read()
 			input := convertToCharacter(ie)
 
